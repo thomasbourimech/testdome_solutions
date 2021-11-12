@@ -10,14 +10,14 @@ class MyHash:
 
     def set(self, key, value):
         hashKey = self.hashing_f(key)
-        key_exists = False
+        keyExists = False
         bucket = self.hashMap[hashKey]
         for i, kv in enumerate(bucket):
             k, v = kv
             if key == k:
                 key_exists = True
                 break
-        if key_exists:
+        if keyExists:
             bucket[i] = (key, value)
         else:
             bucket.append((key, value))
