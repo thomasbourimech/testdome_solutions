@@ -1,17 +1,17 @@
-class myHash:
+class MyHash:
 
     def __init__(self):
         self.size = 10
-        self.hashmap = [[] for _ in range(10)]
+        self.hashMap = [[] for _ in range(10)]
 
     def hashing_f(self, key):
-        hash_key = hash(key) % self.size
-        return hash_key
+        hashKey = hash(key) % self.size
+        return hashKey
 
     def set(self, key, value):
-        hash_key = self.hashing_f(key)
+        hashKey = self.hashing_f(key)
         key_exists = False
-        bucket = self.hashmap[hash_key]
+        bucket = self.hashMap[hashKey]
         for i, kv in enumerate(bucket):
             k, v = kv
             if key == k:
@@ -23,20 +23,20 @@ class myHash:
             bucket.append((key, value))
 
     def get(self, key):
-        hash_key = self.hashing_f(key)
-        bucket = self.hashmap[hash_key]
+        hashKey = self.hashing_f(key)
+        bucket = self.hashMap[hashKey]
         for k, v in bucket:
             if k == key:
                 return v
         return KeyError("%s not found" % key)
 
     def __str__(self):
-        return str(self.hashmap)
+        return str(self.hashMap)
 
 
 
 
-myHash = myHash()
+myHash = MyHash()
 myHash.set(10, "Paris")
 myHash.set(20, "New York")
 myHash.set("another_city", "Tokyo")
